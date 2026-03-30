@@ -88,8 +88,8 @@ find ~/.claude/projects/*/memory -type f 2>/dev/null
 Note: find ALL files, not just `.md` — catch stale locks, temp files, etc.
 
 **1b. Project Path Resolution**
-For each project directory like `-Users-jhkim-Programmer-kinkos1234-github-blog-comadeye`:
-- Decode to actual path: `/Users/jhkim/Programmer/kinkos1234-github-blog/comadeye`
+For each project directory like `-Users-jhkim-Programmer-01-comad-comad-eye`:
+- Decode to actual path: `/Users/jhkim/Programmer/01-comad/comad-eye`
 - This enables verifying code references against the real codebase
 
 **1c. Read & Analyze Each File**
