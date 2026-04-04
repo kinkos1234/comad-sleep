@@ -60,11 +60,24 @@ Maintain state at `~/.claude/.comad-sleep-state.json`:
       "lastHash": "first 100 chars of concatenated content"
     }
   },
-  "pendingReviews": []
+  "pendingReviews": [],
+  "history": []
 }
 ```
 
 On each run: read state → compare → skip unchanged projects → update state after.
+
+### History Recording
+
+Each consolidation run MUST append to `history` array before writing state:
+```json
+{
+  "date": "ISO-8601 timestamp",
+  "changes": ["project/file: what changed", "..."]
+}
+```
+If no changes were made, append `["No changes needed"]`.
+Keep max 20 entries (drop oldest when exceeding).
 
 ## Execution: 2-Phase Pipeline
 
